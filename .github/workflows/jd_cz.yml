@@ -53,7 +53,7 @@ jobs:
           DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
           DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
           IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
-          SYNCURL: "https://raw.githubusercontent.com/i-chenzhe/qx/main/z_mother_jump.js"
+          SYNCURL: "https://raw.githubusercontent.com/darkless456/jd-script/master/jd_mother_jump.js"
       - name: '运行 【浪姐】'
         run: |
           bash ~/run_scripts.sh z_sister.js
@@ -91,7 +91,7 @@ jobs:
           DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
           DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
           IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
-          SYNCURL: "https://raw.githubusercontent.com/i-chenzhe/qx/main/z_xmf.js"
+          SYNCURL: "https://raw.githubusercontent.com/darkless456/jd-script/master/jd_xmf.js"
       - name: '运行 【城城分现金】'
         run: |
           bash ~/run_scripts.sh jd_city.js
@@ -128,7 +128,7 @@ jobs:
           DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
           DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
           IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
-          SYNCURL: "https://raw.githubusercontent.com/i-chenzhe/qx/main/z_lenovo.js"
+          SYNCURL: "https://raw.githubusercontent.com/darkless456/jd-script/master/jd_lenovo.js"
       - name: '运行 【百变大咖秀】'
         run: |
           bash ~/run_scripts.sh jd_entertainment.js
@@ -147,7 +147,7 @@ jobs:
           DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
           DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
           IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
-          SYNCURL: "https://raw.githubusercontent.com/i-chenzhe/qx/main/jd_entertainment.js"
+          SYNCURL: "https://raw.githubusercontent.com/darkless456/jd-script/master/jd_entertainment.js"
       - name: '运行 【美的家电节】'
         run: |
           bash ~/run_scripts.sh z_unionPoster.js
@@ -185,7 +185,7 @@ jobs:
           DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
           DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
           IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
-          SYNCURL: "https://raw.githubusercontent.com/i-chenzhe/qx/main/z_mgold.js"
+          SYNCURL: "https://raw.githubusercontent.com/darkless456/jd-script/master/jd_mgold.js"
       - name: '运行 【答题赢京豆】'
         run: |
           bash ~/run_scripts.sh z_grassy.js
@@ -204,4 +204,4 @@ jobs:
           DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
           DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
           IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
-          SYNCURL: "https://raw.githubusercontent.com/i-chenzhe/qx/main/z_grassy.js"
+          SYNCURL: "https://raw.githubusercontent.com/darkless456/jd-script/master/jd_wish.js"

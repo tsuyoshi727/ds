@@ -22,7 +22,6 @@ get_by_git(){
     cd ~/scriptss
     echo "add my shell scripts"    
     sudo cp -f ~/tmp_scripts/* ./
-    ls
     sudo git add .
     sudo git commit -m "Add shell scripts"
     #UPSTREAM_REPO=`git remote -v | grep origin | grep fetch | awk '{print $2}'`
@@ -33,7 +32,7 @@ get_by_git(){
     git remote --verbose
     
     echo "Pushing changings from tmp_upstream to origin"
-    sudo git push origin "refs/remotes/origin/${SOURCE_BRANCH}:refs/heads/${DESTINATION_BRANCH}" --force
+    sudo git push origin "${SOURCE_BRANCH}:refs/heads/${DESTINATION_BRANCH}" --force
 
     git remote --verbose
 }

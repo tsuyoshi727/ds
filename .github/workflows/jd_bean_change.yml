@@ -34,14 +34,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
+          ref: "jd"
           persist-credentials: false
       - name: Init Env
         run: |
           cp -f update_env.sh ~/update_env.sh && chmod 755 ~/update_env.sh && ~/update_env.sh
       - name: '运行 【京豆变动通知】'
         run: |
-          cd  ~/scripts
-          node ./jd_bean_change.js
+          bash ./run_scripts.sh jd_bean_change.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}

@@ -29,8 +29,8 @@ get_by_git(){
     git remote --verbose
     
     sudo cp -f ~/tmp_scripts/* ./
-    git add .
-    git commit -m "Add shell scripts"
+    sudo git add .
+    sudo git commit -m "Add shell scripts"
     
     echo "Pushing changings from tmp_upstream to origin"
     sudo git push origin "refs/remotes/origin/${SOURCE_BRANCH}:refs/heads/${DESTINATION_BRANCH}" --force
@@ -68,8 +68,8 @@ get_by_docker(){
     git remote --verbose
     
     sudo cp -f ~/tmp_scripts/* ./
-    git add .
-    git commit -m "Add shell scripts"
+    sudo git add .
+    sudo git commit -m "Add shell scripts"
     
     echo "Pushing changings from tmp_upstream to origin"
     git push origin "refs/remotes/origin/${SOURCE_BRANCH}:refs/heads/${DESTINATION_BRANCH}" --force

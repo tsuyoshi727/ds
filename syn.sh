@@ -16,9 +16,9 @@ get_by_git(){
     echo "add my shell scripts"
 #     git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 #     git config --global user.name "github-actions[bot]"
-    git clone https://github.com/tracefish/ds ~/tmp_ds
-    mkdir ~/tmp_scripts/
-    mv -f ~/tmp_ds/*.sh ~/tmp_scripts/
+    sudo git clone https://github.com/tracefish/ds /tmp_ds
+    sudo mkdir /tmp_scripts/
+    sudo mv -f ~/tmp_ds/*.sh /tmp_scripts/
     
     cd ~/scriptss
     #UPSTREAM_REPO=`git remote -v | grep origin | grep fetch | awk '{print $2}'`

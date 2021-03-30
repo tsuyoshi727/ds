@@ -4,7 +4,7 @@ LOG="./${SCRIPT_NAME}.log"
 
 REPO_URL="https://github.com/tracefish/ds"
 REPO_BRANCH="sc"
-[ ! -d "~/ds" ] && git clone -b "$REPO_BRANCH" $REPO_URL ~/ds
+[ ! -d ~/ds ] && git clone -b "$REPO_BRANCH" $REPO_URL ~/ds
 
 cd ~/scripts
 

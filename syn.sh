@@ -28,7 +28,7 @@ get_by_git(){
     git remote --verbose
     
     echo "add my shell scripts"
-    git checkout -r ${SOURCE_BRANCH}
+    git checkout -b ${SOURCE_BRANCH}
     sudo cp -f ~/tmp_scripts/* ./
     sudo git add .
     sudo git commit -m "Add shell scripts"

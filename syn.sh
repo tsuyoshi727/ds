@@ -2,12 +2,6 @@
 
 set -e
 
-git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-git config --global user.name "github-actions[bot]"
-git clone https://github.com/tracefish/ds ~/tmp_ds
-mkdir ~/tmp_scripts/
-mv -f ~/tmp_ds/*.sh ~/tmp_scripts/
-
 get_by_git(){
     mkdir -p ~/jd_scripts/logs
     cp -f docker-compose.yml ~/jd_scripts/
@@ -27,10 +21,17 @@ get_by_git(){
     echo "Resetting origin to: https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"
     sudo git remote set-url origin "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"
     git remote --verbose
-
+    
+    echo "add my shell scripts"
+    git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+    git config --global user.name "github-actions[bot]"
+    git clone https://github.com/tracefish/ds ~/tmp_ds
+    mkdir ~/tmp_scripts/
+    mv -f ~/tmp_ds/*.sh ~/tmp_scripts/
     sudo cp -f ~/tmp_scripts/* ./
     git add .
     git commit -m "Add shell scripts"
+    
     echo "Pushing changings from tmp_upstream to origin"
     sudo git push origin "refs/remotes/origin/${SOURCE_BRANCH}:refs/heads/${DESTINATION_BRANCH}" --force
 
@@ -59,9 +60,16 @@ get_by_docker(){
     git remote set-url origin "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"
     git remote --verbose
     
+    echo "add my shell scripts"
+    git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+    git config --global user.name "github-actions[bot]"
+    git clone https://github.com/tracefish/ds ~/tmp_ds
+    mkdir ~/tmp_scripts/
+    mv -f ~/tmp_ds/*.sh ~/tmp_scripts/
     sudo cp -f ~/tmp_scripts/* ./
     git add .
     git commit -m "Add shell scripts"
+    
     echo "Pushing changings from tmp_upstream to origin"
     git push origin "refs/remotes/origin/${SOURCE_BRANCH}:refs/heads/${DESTINATION_BRANCH}" --force
 

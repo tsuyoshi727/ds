@@ -3,7 +3,7 @@ echo "设置时区"
 sudo rm -f /etc/localtime
 sudo ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
-git checkout jd
+git checkout -b jd
 
 echo "拉取源码"
 git clone --depth 1 -b jd https://github.com/tracefish/ds.git ~/scripts

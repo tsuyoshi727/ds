@@ -40,7 +40,7 @@ jobs:
           cp -f update_env.sh ~/update_env.sh && chmod 755 ~/update_env.sh && ~/update_env.sh
       - name: '运行 【京东汽车兑换】'
         run: |
-          bash ~/concurrency_timer.sh jd_car_exchange.js
+          bash ./concurrency_timer.sh jd_car_exchange.js
         env:
           JD_COOKIES: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}

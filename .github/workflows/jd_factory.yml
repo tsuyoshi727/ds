@@ -30,14 +30,14 @@ jobs:
           key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('package-lock.json') }} # 使用 package-lock.json 的 Hash 作为缓存的 key。也可以使用 package.json 代替
       - uses: actions/checkout@v2
         with:
+          ref: "jd"
           persist-credentials: false
       - name: Init Env
         run: |
           cp -f update_env.sh ~/update_env.sh && chmod 755 ~/update_env.sh && ~/update_env.sh
       - name: '运行 【京喜工厂】'
         run: |
-          cp -f run_scripts.sh ~/run_scripts.sh && chmod 755 ~/run_scripts.sh
-          bash ~/run_scripts.sh jd_dreamFactory.js
+          bash ./run_scripts.sh jd_dreamFactory.js
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
@@ -57,7 +57,7 @@ jobs:
           SYNCURL: "https://raw.githubusercontent.com/jianminLee/jd_scripts/main/jd_dreamFactory.js"
       - name: '运行 【东东工厂】'
         run: |
-          bash ~/run_scripts.sh jd_jdfactory.js
+          bash ./run_scripts.sh jd_jdfactory.js
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
@@ -75,7 +75,7 @@ jobs:
           JDFACTORY_FORBID_ACCOUNT: ${{ secrets.JDFACTORY_FORBID_ACCOUNT }}
       - name: '运行 【京东摇钱树】'
         run: |
-          bash ~/run_scripts.sh jd_moneyTree.js
+          bash ./run_scripts.sh jd_moneyTree.js
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
           JD_COOKIE: ${{ secrets.JD_COOKIE }}

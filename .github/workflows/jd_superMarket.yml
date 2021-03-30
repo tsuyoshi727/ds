@@ -34,14 +34,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
+          ref: "jd"
           persist-credentials: false
       - name: run scripts
         run: |
           cp -f update_env.sh ~/update_env.sh && chmod 755 ~/update_env.sh && ~/update_env.sh
       - name: '运行 【东东超市】'
         run: |
-          cp -f run_scripts.sh ~/run_scripts.sh && chmod 755 ~/run_scripts.sh
-          bash ~/run_scripts.sh jd_superMarket.js
+          bash ./run_scripts.sh jd_superMarket.js
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
           JD_COOKIE: ${{ secrets.JD_COOKIE }}

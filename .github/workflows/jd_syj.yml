@@ -33,7 +33,7 @@ jobs:
           persist-credentials: false
       - name: Init Env
         run: |
-          git checkout jd
+          git checkout -b jd
           cp -f update_env.sh ~/update_env.sh && chmod 755 ~/update_env.sh && ~/update_env.sh
       - name: '运行 【十元街脚本】'
         run: |

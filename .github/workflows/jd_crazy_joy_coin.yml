@@ -34,14 +34,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
+          ref: "jd"
           persist-credentials: false
       - name: Init Env
         run: |
           cp -f update_env.sh ~/update_env.sh && chmod 755 ~/update_env.sh && ~/update_env.sh
       - name: '运行 【疯狂的Joy】'
         run: |
-          cp -f concurrency.sh ~/concurrency.sh && chmod 755 ~/concurrency.sh
-          bash ~/concurrency.sh jd_crazy_joy_coin.js &
+          bash ./concurrency.sh jd_crazy_joy_coin.js &
           sleep 5h && sleep 30m && killall node && echo "退出脚本"
         env:
           JD_COOKIES: ${{ secrets.JD_COOKIE }}

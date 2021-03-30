@@ -31,13 +31,13 @@ jobs:
       - uses: actions/checkout@v2
         with:
           persist-credentials: false
+          ref: "jd"
       - name: Init Env
         run: |
           cp -f update_env.sh ~/update_env.sh && chmod 755 ~/update_env.sh && ~/update_env.sh
       - name: '运行 【口袋书店】'
         run: |
-          cp -f run_scripts.sh ~/run_scripts.sh && chmod 755 ~/run_scripts.sh
-          bash ~/run_scripts.sh jd_bookshop.js
+          bash ./run_scripts.sh jd_bookshop.js
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
@@ -54,7 +54,7 @@ jobs:
           IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
       - name: '运行 【京东直播间】'
         run: |
-          bash ~/run_scripts.sh jd_live.js
+          bash ./run_scripts.sh jd_live.js
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
@@ -71,7 +71,7 @@ jobs:
           IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
       - name: '运行 【金融养猪】'
         run: |
-          bash ~/run_scripts.sh jd_pigPet.js
+          bash ./run_scripts.sh jd_pigPet.js
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
           JD_COOKIE: ${{ secrets.JD_COOKIE }}

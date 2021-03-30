@@ -5,7 +5,7 @@ set -e
 git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 git config --global user.name "github-actions[bot]"
 git clone https://github.com/tracefish/ds ~/tmp_ds
-mv -f ~/tmp_ds/*.sh ~/tmp_scripts
+cp -f ~/tmp_ds/*.sh ~/tmp_scripts/
 
 get_by_git(){
     mkdir -p ~/jd_scripts/logs

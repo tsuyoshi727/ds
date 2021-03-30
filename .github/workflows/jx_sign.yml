@@ -25,14 +25,14 @@ jobs:
           key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('package-lock.json') }} # 使用 package-lock.json 的 Hash 作为缓存的 key。也可以使用 package.json 代替
       - uses: actions/checkout@v2
         with:
+          ref: "jd"
           persist-credentials: false
       - name: Init Env
         run: |
           cp -f update_env.sh ~/update_env.sh && chmod 755 ~/update_env.sh && ~/update_env.sh
       - name: '运行 【京喜签到】'
         run: |
-          cp -f run_scripts.sh ~/run_scripts.sh && chmod 755 ~/run_scripts.sh
-          bash ~/run_scripts.sh jx_sign.js
+          bash ./run_scripts.sh jx_sign.js
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
@@ -47,8 +47,7 @@ jobs:
           IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
       - name: '运行 【疯狂的Joy】'
         run: |
-          cp -f run_scripts.sh ~/run_scripts.sh && chmod 755 ~/run_scripts.sh
-          bash ~/run_scripts.sh jd_crazy_joy.js
+          bash ./run_scripts.sh jd_crazy_joy.js
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
@@ -62,5 +61,5 @@ jobs:
           DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
           IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
           JDJOY_HELPSELF: ${{ secrets.JDJOY_HELPSELF }}
-          JDJOY_APPLYJDBEAN: 2000
+          JDJOY_APPLYJDBEAN: ${{ secrets.JDJOY_APPLYJDBEAN || 2000 }}
           JDJOY_SHARECODES: ${{ secrets.JDJOY_SHARECODES }}

@@ -36,7 +36,7 @@ jobs:
           cp -f update_env.sh ~/update_env.sh && chmod 755 ~/update_env.sh && ~/update_env.sh
       - name: '运行 【东东农场】'
         run: |
-          bash ./run_scripts.sh jd_fruit.js
+          ./run_scripts.sh jd_fruit.js
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
           JD_COOKIE: ${{ secrets.JD_COOKIE }}

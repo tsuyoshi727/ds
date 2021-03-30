@@ -40,10 +40,9 @@ jobs:
           cp -f update_env.sh ~/update_env.sh && chmod 755 ~/update_env.sh && ~/update_env.sh
       - name: '运行 【美丽颜究院】'
         run: |
-          set -e
-          cp -f concurrency.sh ~/concurrency.sh && chmod 755 ~/concurrency.sh
-          bash ~/concurrency.sh jd_beauty.js
+          bash ./concurrency.sh jd_beauty.js
         env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
           JD_COOKIES: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
           PUSH_KEY: ${{ secrets.PUSH_KEY }}

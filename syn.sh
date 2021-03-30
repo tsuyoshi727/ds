@@ -55,4 +55,4 @@ get_by_docker(){
 
     git remote --verbose
 }
-get_by_docker
+get_by_git

@@ -18,19 +18,19 @@ get_by_git(){
     docker exec -i jd_scripts /bin/sh -c "git clone $REPO_URL /scriptss"
 
     sudo cp -rf `sudo find /var/lib/docker -type d -name "scriptss" | grep merged` ~/
-    echo "add my shell scripts"
 
     cd ~/scriptss
     #UPSTREAM_REPO=`git remote -v | grep origin | grep fetch | awk '{print $2}'`
     git remote --verbose
     
-    sudo cp -f ~/tmp_scripts/* ./
-    sudo git add .
-    sudo git commit -m "Add shell scripts"
-    
     echo "Resetting origin to: https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"
     sudo git remote set-url origin "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"
     git remote --verbose
+    
+    echo "add my shell scripts"
+    sudo cp -f ~/tmp_scripts/* ./
+    sudo git add .
+    sudo git commit -m "Add shell scripts"
     
     echo "Pushing changings from tmp_upstream to origin"
     sudo git push origin "refs/remotes/origin/${SOURCE_BRANCH}:refs/heads/${DESTINATION_BRANCH}" --force

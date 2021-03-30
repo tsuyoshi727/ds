@@ -37,6 +37,7 @@ jobs:
           cp -f test.sh ~/test.sh && chmod 755 ~/test.sh && ~/test.sh
       - name: '运行 【十元街脚本】'
         run: |
+          ls
           run_scripts.sh jd_syj.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}

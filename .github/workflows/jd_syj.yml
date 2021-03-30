@@ -38,7 +38,7 @@ jobs:
       - name: '运行 【十元街脚本】'
         run: |
           bash ./run_scripts.sh jd_syj.js
-          node ./jdCookie.js
+          node ./jd_syj.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}

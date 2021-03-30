@@ -41,7 +41,7 @@ jobs:
           cp -f update_env.sh ~/update_env.sh && chmod 755 ~/update_env.sh && ~/update_env.sh
       - name: '运行 【监控crazyJoy分红】'
         run: |
-          bash ~/run_scripts.sh/jd_crazy_joy_bonus.js
+          bash ~/run_scripts.sh jd_crazy_joy_bonus.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}

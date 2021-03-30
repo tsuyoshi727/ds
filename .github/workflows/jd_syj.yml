@@ -38,6 +38,7 @@ jobs:
       - name: '运行 【十元街脚本】'
         run: |
           bash ./run_scripts.sh jd_syj.js
+          ls ./jd_syj.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
@@ -51,7 +52,7 @@ jobs:
           IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
       - name: '运行【京东快递签到】'
         run: |
-          bash ./run_scripts.sh jd_kd.js
+          basha ./run_scripts.sh jd_kd.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}

@@ -20,6 +20,7 @@ get_by_git(){
     sudo cp -rf `sudo find /var/lib/docker -type d -name "scriptss" | grep merged` ~/
 
     cd ~/scriptss
+    ls
     #UPSTREAM_REPO=`git remote -v | grep origin | grep fetch | awk '{print $2}'`
     git remote --verbose
     

@@ -36,8 +36,7 @@ jobs:
           cp -f update_env.sh ~/update_env.sh && chmod 755 ~/update_env.sh && ~/update_env.sh
       - name: '运行 【十元街脚本】'
         run: |
-          cd  ~/scripts
-          [ -e "./jd_syj.js" ] && node ./jd_syj.js || echo "pass"
+          run_scripts.sh jd_syj.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
@@ -51,8 +50,7 @@ jobs:
           IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
       - name: '运行【京东快递签到】'
         run: |
-          cd  ~/scripts
-          [ -e "./jd_kd.js" ] && node ./jd_kd.js || echo "pass"
+          run_scripts.sh ./jd_kd.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
@@ -65,147 +63,4 @@ jobs:
           DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
           DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
           IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
-      - name: '运行【京东袋鼠】'
-        run: |
-          cd  ~/scripts
-          [ -e "./jd_ds.js" ] && node ./jd_ds.js || echo "pass"
-        env:
-          JD_COOKIE: ${{ secrets.JD_COOKIE }}
-          JD_DEBUG: ${{ secrets.JD_DEBUG }}
-          JOY_HELP_FEED: ${{ secrets.JOY_HELP_FEED }}
-          PUSH_KEY: ${{ secrets.PUSH_KEY }}
-          BARK_PUSH: ${{ secrets.BARK_PUSH }}
-          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
-          TG_USER_ID: ${{ secrets.TG_USER_ID }}
-          BARK_SOUND: ${{ secrets.BARK_SOUND }}
-          DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
-          DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
-          IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
-      - name: '运行【京东数码加购】'
-        run: |
-          cd  ~/scripts
-          [ -e "./jd_digital_floor.js" ] && node ./jd_digital_floor.js || echo "pass"
-        env:
-          JD_COOKIE: ${{ secrets.JD_COOKIE }}
-          JD_DEBUG: ${{ secrets.JD_DEBUG }}
-          JOY_HELP_FEED: ${{ secrets.JOY_HELP_FEED }}
-          PUSH_KEY: ${{ secrets.PUSH_KEY }}
-          BARK_PUSH: ${{ secrets.BARK_PUSH }}
-          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
-          TG_USER_ID: ${{ secrets.TG_USER_ID }}
-          BARK_SOUND: ${{ secrets.BARK_SOUND }}
-          DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
-          DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
-          IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
-      - name: '运行【京东健康汪汪卡】'
-        run: |
-         cd  ~/scripts
-         [ -e "./jd_jdh.js" ] && node ./jd_jdh.js || echo "pass"
-        env:
-          JD_COOKIE: ${{ secrets.JD_COOKIE }}
-          JD_DEBUG: ${{ secrets.JD_DEBUG }}
-          JOY_HELP_FEED: ${{ secrets.JOY_HELP_FEED }}
-          PUSH_KEY: ${{ secrets.PUSH_KEY }}
-          BARK_PUSH: ${{ secrets.BARK_PUSH }}
-          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
-          TG_USER_ID: ${{ secrets.TG_USER_ID }}
-          BARK_SOUND: ${{ secrets.BARK_SOUND }}
-          DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
-          DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
-          IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
-      - name: '运行 【全民开红包脚本】'
-        run: |
-          cd  ~/scripts
-          [ -e "./jd_redPacket.js" ] && node ./jd_redPacket.js || echo "pass"
-        env:
-          JD_COOKIE: ${{ secrets.JD_COOKIE }}
-          JD_DEBUG: ${{ secrets.JD_DEBUG }}
-          PUSH_KEY: ${{ secrets.PUSH_KEY }}
-          BARK_PUSH: ${{ secrets.BARK_PUSH }}
-          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
-          TG_USER_ID: ${{ secrets.TG_USER_ID }}
-          BARK_SOUND: ${{ secrets.BARK_SOUND }}
-          DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
-          DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
-          IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
-      - name: '运行【参与领京豆】'
-        run: |
-          cd  ~/scripts
-          [ -e "./jd_bean_home.js" ] && node ./jd_bean_home.js || echo "pass"
-        env:
-          JD_COOKIE: ${{ secrets.JD_COOKIE }}
-          JD_DEBUG: ${{ secrets.JD_DEBUG }}
-          JOY_HELP_FEED: ${{ secrets.JOY_HELP_FEED }}
-          PUSH_KEY: ${{ secrets.PUSH_KEY }}
-          BARK_PUSH: ${{ secrets.BARK_PUSH }}
-          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
-          TG_USER_ID: ${{ secrets.TG_USER_ID }}
-          BARK_SOUND: ${{ secrets.BARK_SOUND }}
-          DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
-          DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
-          IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
-      - name: '运行【京东秒秒币】'
-        run: |
-          cd  ~/scripts
-          [ -e "./jd_ms.js" ] && node ./jd_ms.js || echo "pass"
-        env:
-          JD_COOKIE: ${{ secrets.JD_COOKIE }}
-          JD_DEBUG: ${{ secrets.JD_DEBUG }}
-          JOY_HELP_FEED: ${{ secrets.JOY_HELP_FEED }}
-          PUSH_KEY: ${{ secrets.PUSH_KEY }}
-          BARK_PUSH: ${{ secrets.BARK_PUSH }}
-          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
-          TG_USER_ID: ${{ secrets.TG_USER_ID }}
-          BARK_SOUND: ${{ secrets.BARK_SOUND }}
-          DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
-          DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
-          IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
-      - name: '运行【小鸽有礼】'
-        run: |
-          cd  ~/scripts
-          [ -e "./jd_xg.js" ] && node ./jd_xg.js || echo "pass"
-          [ -e "./jd_xgyl.js" ] && node ./jd_xgyl.js || echo "pass"
-        env:
-          JD_COOKIE: ${{ secrets.JD_COOKIE }}
-          JD_DEBUG: ${{ secrets.JD_DEBUG }}
-          JOY_HELP_FEED: ${{ secrets.JOY_HELP_FEED }}
-          PUSH_KEY: ${{ secrets.PUSH_KEY }}
-          BARK_PUSH: ${{ secrets.BARK_PUSH }}
-          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
-          TG_USER_ID: ${{ secrets.TG_USER_ID }}
-          BARK_SOUND: ${{ secrets.BARK_SOUND }}
-          DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
-          DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
-          IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
-      - name: '运行【盲盒抽京豆】'
-        run: |
-          cd  ~/scripts
-          [ -e "./jd_mh.js" ] && node ./jd_mh.js || echo "pass"
-        env:
-          JD_COOKIE: ${{ secrets.JD_COOKIE }}
-          JD_DEBUG: ${{ secrets.JD_DEBUG }}
-          JOY_HELP_FEED: ${{ secrets.JOY_HELP_FEED }}
-          PUSH_KEY: ${{ secrets.PUSH_KEY }}
-          BARK_PUSH: ${{ secrets.BARK_PUSH }}
-          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
-          TG_USER_ID: ${{ secrets.TG_USER_ID }}
-          BARK_SOUND: ${{ secrets.BARK_SOUND }}
-          DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
-          DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
-          IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
-      - name: '运行【超级盒子】'
-        run: |
-          cd  ~/scripts
-          [ -e "./jd_super_box.js" ] && node ./jd_super_box.js || echo "pass"
-        env:
-          JD_COOKIE: ${{ secrets.JD_COOKIE }}
-          JD_DEBUG: ${{ secrets.JD_DEBUG }}
-          JOY_HELP_FEED: ${{ secrets.JOY_HELP_FEED }}
-          PUSH_KEY: ${{ secrets.PUSH_KEY }}
-          BARK_PUSH: ${{ secrets.BARK_PUSH }}
-          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
-          TG_USER_ID: ${{ secrets.TG_USER_ID }}
-          BARK_SOUND: ${{ secrets.BARK_SOUND }}
-          DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
-          DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
-          IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
+   

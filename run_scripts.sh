@@ -6,7 +6,7 @@ REPO_URL="https://github.com/tracefish/ds"
 REPO_BRANCH="sc"
 [ ! -d "~/ds" ] && git clone -b "$REPO_BRANCH" $REPO_URL ~/ds
 
-[ -d "~/scripts" ] && cd ~/scripts
+cd ~/scripts
 
 logDir="../ds"
 # 格式化助力码

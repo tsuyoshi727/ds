@@ -35,9 +35,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           persist-credentials: false
-      - name: Init Env
-        run: |
-          cp -f update_env.sh ~/update_env.sh && chmod 755 ~/update_env.sh && ~/update_env.sh
       - name: '运行 【助力码】'
         run: |
           cp -f get_sharecode.sh ~/get_sharecode.sh && chmod 755 ~/get_sharecode.sh && ~/get_sharecode.sh

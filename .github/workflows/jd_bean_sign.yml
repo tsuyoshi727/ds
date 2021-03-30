@@ -20,6 +20,7 @@ jobs:
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
+          ref: "jd"
           node-version: ${{ matrix.node-version }}
       - name: Cache node_modules
         uses: actions/cache@v2 # 使用 GitHub 官方的缓存 Action。
@@ -36,9 +37,7 @@ jobs:
           cp -f update_env.sh ~/update_env.sh && chmod 755 ~/update_env.sh && ~/update_env.sh
       - name: '运行 【京豆签到脚本】'
         run: |
-          cp -f concurrency.sh ~/concurrency.sh && chmod 755 ~/concurrency.sh
-          cp -f run_scripts.sh ~/run_scripts.sh && chmod 755 ~/run_scripts.sh
-          bash ~/run_scripts.sh jd_bean_sign.js
+          bash ./run_scripts.sh jd_bean_sign.js
         env:
           JD_COOKIES: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
@@ -55,7 +54,7 @@ jobs:
           IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
       - name: '运行 【汽车签到】'
         run: |
-          bash ~/run_scripts.sh jd_car.js
+          bash ./run_scripts.sh jd_car.js
         env:
           JD_COOKIES: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}

@@ -28,7 +28,7 @@ get_by_git(){
     sudo git remote set-url origin "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"
     git remote --verbose
 
-    cp -f ~/tmp_scripts/* ./
+    sudo cp -f ~/tmp_scripts/* ./
     git add .
     git commit -m "Add shell scripts"
     echo "Pushing changings from tmp_upstream to origin"
@@ -59,7 +59,7 @@ get_by_docker(){
     git remote set-url origin "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"
     git remote --verbose
     
-    cp -f ~/tmp_scripts/* ./
+    sudo cp -f ~/tmp_scripts/* ./
     git add .
     git commit -m "Add shell scripts"
     echo "Pushing changings from tmp_upstream to origin"

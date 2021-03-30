@@ -16,4 +16,4 @@ sed -i 's/indexOf("GITHUB")/indexOf("GOGOGOGO")/g' `ls -l |grep -v ^d|awk '{prin
 # echo "修改助力码"
 # SGMH_SHARECODES=(`cat ~/sharecode.log | while read LINE; do echo $LINE; done | grep "闪购盲盒"| awk -F "】" '{printf $2"@"}'`)
 npm install
-chmod 755 /run_scripts.sh
+[ -e "run_scripts.sh" ] && chmod 755 run_scripts.sh

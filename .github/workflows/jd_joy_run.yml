@@ -34,14 +34,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
+          ref: "jd"
           persist-credentials: false
       - name: Init Env
         run: |
           cp -f update_env.sh ~/update_env.sh && chmod 755 ~/update_env.sh && ~/update_env.sh
       - name: '运行 【宠汪汪助力】'
         run: |
-          cd  ~/scripts
-          node ./jd_joy_run.js &
+          bash ./run_scripts.sh ./jd_joy_run.js &
           sleep 15m && [ -n pgrep "node" ] && killall node || echo "退出脚本"
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
@@ -55,4 +55,4 @@ jobs:
           DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
           IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
           DDFACTORY_SHARECODES: ${{ secrets.DDFACTORY_SHARECODES }}
-          JOY_RUN_HELP_MYSELF: "true"
+          JOY_RUN_HELP_MYSELF: ${{ secrets.DDFACTORY_SHARECODES || "true" }}

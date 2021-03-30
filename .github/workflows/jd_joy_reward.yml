@@ -34,14 +34,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
+          ref: "jd"
           persist-credentials: false
       - name: Init Env
         run: |
           cp -f update_env.sh ~/update_env.sh && chmod 755 ~/update_env.sh && ~/update_env.sh
       - name: '运行 【宠汪汪积分兑换京豆】'
         run: |
-          cp -f concurrency_timer.sh ~/concurrency_timer.sh && chmod 755 ~/concurrency_timer.sh
-          bash ~/concurrency_timer.sh jd_joy_reward.js "16:00:00"
+          bash ./concurrency_timer.sh jd_joy_reward.js "16:00:00"
         env:
           JD_COOKIES: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}

@@ -1,3 +1,4 @@
+#!/bin/bash
 SCRIPT_NAME=`echo "${1}" | awk -F "." '{print $1}'`
 LOG="./${SCRIPT_NAME}.log"
 

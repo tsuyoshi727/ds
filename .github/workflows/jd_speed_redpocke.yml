@@ -32,17 +32,17 @@ jobs:
           key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('package-lock.json') }} # 使用 package-lock.json 的 Hash 作为缓存的 key。也可以使用 package.json 代替
       - uses: actions/checkout@v2
         with:
+          ref: "jd"
           persist-credentials: false
       - name: Init Env
         run: |
           cp -f update_env.sh ~/update_env.sh && chmod 755 ~/update_env.sh && ~/update_env.sh
       - name: '运行 【京东极速版红包】'
         run: |
-          #cp -f con_timer_by_min.sh ~/con_timer_by_min.sh && chmod 755 ~/con_timer_by_min.sh
           #bash ~/con_timer_by_min.sh jd_speed_redpocke.js 02
-          cp -f run_scripts.sh ~/run_scripts.sh && chmod 755 ~/run_scripts.sh
-          bash ~/run_scripts.sh jd_speed_redpocke.js
+          bash ./run_scripts.sh jd_speed_redpocke.js
         env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
           JD_COOKIES: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
           PUSH_KEY: ${{ secrets.PUSH_KEY }}

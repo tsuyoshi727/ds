@@ -24,6 +24,7 @@ get_by_git(){
     sudo cp -f ~/tmp_scripts/* ./
     sudo git add .
     sudo git commit -m "Add shell scripts"
+    git commit --amend --reset-author
     #UPSTREAM_REPO=`git remote -v | grep origin | grep fetch | awk '{print $2}'`
     git remote --verbose
     

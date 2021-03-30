@@ -1,7 +1,12 @@
 #!/usr/bin/env sh
 
 set -e
-
+git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+git config --global user.name "github-actions[bot]"
+sudo git clone https://github.com/tracefish/ds ~/tmp_ds
+sudo mkdir ~/tmp_scripts/
+sudo mv -f ~/tmp_ds/*.sh ~/tmp_scripts/
+    
 get_by_git(){
     mkdir -p ~/jd_scripts/logs
     cp -f docker-compose.yml ~/jd_scripts/
@@ -14,12 +19,7 @@ get_by_git(){
 
     sudo cp -rf `sudo find /var/lib/docker -type d -name "scriptss" | grep merged` ~/
     echo "add my shell scripts"
-#     git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-#     git config --global user.name "github-actions[bot]"
-    sudo git clone https://github.com/tracefish/ds ~/tmp_ds
-    sudo mkdir ~/tmp_scripts/
-    sudo mv -f ~/tmp_ds/*.sh ~/tmp_scripts/
-    
+
     cd ~/scriptss
     #UPSTREAM_REPO=`git remote -v | grep origin | grep fetch | awk '{print $2}'`
     git remote --verbose
@@ -39,13 +39,6 @@ get_by_git(){
 }
 
 get_by_docker(){
-    echo "add my shell scripts"
-    git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-    git config --global user.name "github-actions[bot]"
-    git clone https://github.com/tracefish/ds ~/tmp_ds
-    mkdir ~/tmp_scripts/
-    mv -f ~/tmp_ds/*.sh ~/tmp_scripts/
-    
     docker rmi `docker images -q`
     echo "Get docker image"
     docker pull $SOURCE_IMAGE
@@ -62,14 +55,15 @@ get_by_docker(){
     cd ~/scripts/scripts/
     SOURCE_BRANCH=`git branch | awk '{print $2}'`
     UPSTREAM_REPO=`git remote -v | grep origin | grep fetch | awk '{print $2}'`
-
-    echo "Resetting origin to: https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"
-    git remote set-url origin "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"
-    git remote --verbose
     
+    echo "add my shell scripts"
     sudo cp -f ~/tmp_scripts/* ./
     sudo git add .
     sudo git commit -m "Add shell scripts"
+    
+    echo "Resetting origin to: https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"
+    git remote set-url origin "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"
+    git remote --verbose
     
     echo "Pushing changings from tmp_upstream to origin"
     git push origin "refs/remotes/origin/${SOURCE_BRANCH}:refs/heads/${DESTINATION_BRANCH}" --force

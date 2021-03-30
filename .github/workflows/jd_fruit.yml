@@ -36,8 +36,7 @@ jobs:
           cp -f update_env.sh ~/update_env.sh && chmod 755 ~/update_env.sh && ~/update_env.sh
       - name: '运行 【东东农场】'
         run: |
-          cp -f run_scripts.sh ~/run_scripts.sh && chmod 755 ~/run_scripts.sh
-          bash ~/run_scripts.sh jd_fruit.js
+          bash ./run_scripts.sh jd_fruit.js
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
@@ -56,8 +55,7 @@ jobs:
           MY_SHARECODES: "eed8a50f50a2407ba483b7f74d88da7e@a138819f79b64f18bb1fe23a9aad9e7d@3c88e6a635c142f2bbee7a0cf17a754f@0792756107fc43d590b88b7d54796ee9@12f465d77ecf472aad1d1bb2e5222a98@d57715ac11754598b1f9c5f6b338ce32@e72776d09bd4486c9b66fbd026da9de1@3cb84ada5543426a9e43174702e60e1e"
       - name: '运行 【东东萌宠】'
         run: |
-          cp -f run_scripts.sh ~/run_scripts.sh && chmod 755 ~/run_scripts.sh
-          bash ~/run_scripts.sh jd_pet.js
+          bash ./run_scripts.sh jd_pet.js
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
           JD_COOKIE: ${{ secrets.JD_COOKIE }}

@@ -30,14 +30,14 @@ jobs:
           key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('package-lock.json') }} # 使用 package-lock.json 的 Hash 作为缓存的 key。也可以使用 package.json 代替
       - uses: actions/checkout@v2
         with:
+          ref: "jd"
           persist-credentials: false
       - name: Init Env
         run: |
           cp -f update_env.sh ~/update_env.sh && chmod 755 ~/update_env.sh && ~/update_env.sh
       - name: '运行 【母婴跳一跳】'
         run: |
-          cp -f run_scripts.sh ~/run_scripts.sh && chmod 755 ~/run_scripts.sh
-          bash ~/run_scripts.sh z_mother_jump.js
+          bash ./run_scripts.sh z_mother_jump.js
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
@@ -56,7 +56,7 @@ jobs:
           SYNCURL: "https://raw.githubusercontent.com/darkless456/jd-script/master/jd_mother_jump.js"
       - name: '运行 【浪姐】'
         run: |
-          bash ~/run_scripts.sh z_sister.js
+          bash ./run_scripts.sh z_sister.js
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
@@ -75,7 +75,7 @@ jobs:
           SYNCURL: "https://raw.githubusercontent.com/i-chenzhe/qx/main/z_sister.js"
       - name: '运行 【小魔方】'
         run: |
-          bash ~/run_scripts.sh z_xmf.js
+          bash ./run_scripts.sh z_xmf.js
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
@@ -94,7 +94,7 @@ jobs:
           SYNCURL: "https://raw.githubusercontent.com/darkless456/jd-script/master/jd_xmf.js"
       - name: '运行 【城城分现金】'
         run: |
-          bash ~/run_scripts.sh jd_city.js
+          bash ./run_scripts.sh jd_city.js
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
@@ -112,7 +112,7 @@ jobs:
           IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
       - name: '运行 【联想集卡活动】'
         run: |
-          bash ~/run_scripts.sh z_lenovo.js
+          bash ./run_scripts.sh z_lenovo.js
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
@@ -131,7 +131,7 @@ jobs:
           SYNCURL: "https://raw.githubusercontent.com/darkless456/jd-script/master/jd_lenovo.js"
       - name: '运行 【百变大咖秀】'
         run: |
-          bash ~/run_scripts.sh jd_entertainment.js
+          bash ./run_scripts.sh jd_entertainment.js
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
@@ -150,7 +150,7 @@ jobs:
           SYNCURL: "https://raw.githubusercontent.com/darkless456/jd-script/master/jd_entertainment.js"
       - name: '运行 【美的家电节】'
         run: |
-          bash ~/run_scripts.sh z_unionPoster.js
+          bash ./run_scripts.sh z_unionPoster.js
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
@@ -169,7 +169,7 @@ jobs:
           SYNCURL: "https://raw.githubusercontent.com/i-chenzhe/qx/main/z_unionPoster.js"
       - name: '运行 【金口碑奖投票】'
         run: |
-          bash ~/run_scripts.sh z_mgold.js
+          bash ./run_scripts.sh z_mgold.js
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
@@ -188,7 +188,7 @@ jobs:
           SYNCURL: "https://raw.githubusercontent.com/darkless456/jd-script/master/jd_mgold.js"
       - name: '运行 【答题赢京豆】'
         run: |
-          bash ~/run_scripts.sh z_grassy.js
+          bash ./run_scripts.sh z_grassy.js
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
           JD_COOKIE: ${{ secrets.JD_COOKIE }}

@@ -1,5 +1,5 @@
 cd ~
-git clone https://github.com/tracefish/ds ./ds
+git clone https://github.com/tsuyoshi727/ds ./ds
 cd ./ds
 git checkout sc
 

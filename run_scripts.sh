@@ -2,7 +2,7 @@
 SCRIPT_NAME=`echo "${1}" | awk -F "." '{print $1}'`
 LOG="./${SCRIPT_NAME}.log"
 
-REPO_URL="https://github.com/tracefish/ds"
+REPO_URL="https://github.com/tsuyoshi727/ds"
 REPO_BRANCH="sc"
 [ ! -d ~/ds ] && git clone -b "$REPO_BRANCH" $REPO_URL ~/ds
 
@@ -95,8 +95,8 @@ cat ${LOG}1
 echo "上传助力码文件"
 cd ~/ds
 echo "拉取最新源码"
-git config --global user.email "tracefish@qq.com"
-git config --global user.name "tracefish"
+git config --global user.email "tsuyoshi727@qq.com"
+git config --global user.name "tsuyoshi727"
 git pull origin "$REPO_BRANCH:$REPO_BRANCH"
 
 echo "Resetting origin to: https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"

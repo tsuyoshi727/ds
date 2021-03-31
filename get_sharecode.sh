@@ -73,8 +73,8 @@ sudo git remote set-url origin "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$
 echo "强制覆盖原文件"
 mv -f ~/aborad.log ./$AB_LOG
 mv -v ~/$LOCATION_LOG ./$LOCATION_LOG
-git config --global user.email "tracefish@qq.com"
-git config --global user.name "tracefish"
+git config --global user.email "tsuyoshi727@qq.com"
+git config --global user.name "tsuyoshi727"
 git add .
 git commit -m "update `date +%Y%m%d%H%M%S`"
 

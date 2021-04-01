@@ -85,6 +85,7 @@ jd_live_redrain.js
 * jd_mohe.yml
 ```
 jd_mohe.js
+jd_carnivalcity.js
 ```
 * jd_necklace.yml
 ```
@@ -167,4 +168,8 @@ jd_cfd.js
 * jx_sign.yml
 ```
 jd_crazy_joy.js
+```
+* test.yml
+```
+jd_carnivalcity.js
 ```

@@ -167,6 +167,7 @@ jd_cfd.js
 ```
 * jx_sign.yml
 ```
+jx_sign.js
 jd_crazy_joy.js
 ```
 * test.yml

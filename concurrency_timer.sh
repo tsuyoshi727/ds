@@ -7,6 +7,15 @@ echo "设置时区"
 sudo rm -f /etc/localtime
 sudo ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
+cd ~/scripts
+echo "DECODE"
+encode_str=(`cat ./$1 | grep "window" | awk -F "window" '{print($1)}'| awk -F "var " '{print $(NF-1)}' | awk -F "=" '{print $1}' | sort -u`)
+if [ -n "$encode_str" ]; then
+    for ec in ${encode_str[*]}
+    do
+        sed -i "s/return $ec/if($ec.toLowerCase()==\"github\"){$ec=\"GOGOGOGO\"};return $ec/g" ./$1
+    done
+fi
 echo "开始多账号并发"
 IFS=$'\n'
 num=0

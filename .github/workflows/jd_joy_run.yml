@@ -37,7 +37,7 @@ jobs:
           cp -f update_env.sh ~/update_env.sh && chmod 755 ~/update_env.sh && ~/update_env.sh
       - name: '运行 【宠汪汪助力】'
         run: |
-          bash ./run_scripts.sh ./jd_joy_run.js &
+          bash ./run_scripts.sh jd_joy_run.js &
           sleep 15m && [ -n pgrep "node" ] && killall node || echo "退出脚本"
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}

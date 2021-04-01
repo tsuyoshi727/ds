@@ -20,7 +20,6 @@ jobs:
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
-          ref: "jd"
           node-version: ${{ matrix.node-version }}
       - name: Cache node_modules
         uses: actions/cache@v2 # 使用 GitHub 官方的缓存 Action。
@@ -31,6 +30,7 @@ jobs:
           key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('package-lock.json') }} # 使用 package-lock.json 的 Hash 作为缓存的 key。也可以使用 package.json 代替
       - uses: actions/checkout@v2
         with:
+          ref: "jd"
           persist-credentials: false
       - name: Init Env
         run: |

@@ -18,6 +18,17 @@ echo "开始多账号并发"
 IFS=$'\n'
 num=0
 [ "$timer" = "00:00:00" ] && nextdate=`date +%s%N -d "+1 day $timer"` || nextdate=`date +%s%N -d "$timer"`
+
+cd ~/scripts
+echo "DECODE"
+encode_str=(`cat ./$1 | grep "window" | awk -F "window" '{print($1)}'| awk -F "var " '{print $(NF-1)}' | awk -F "=" '{print $1}' | sort -u`)
+if [ -n "$encode_str" ]; then
+    for ec in ${encode_str[*]}
+    do
+        sed -i "s/return $ec/if($ec.toLowerCase()==\"github\"){$ec=\"GOGOGOGO\"};return $ec/g" ./$1
+    done
+fi
+
 if [ -n "$JD_COOKIE" ]; then
   echo "修改cookie"
   sed -i 's/process.env.JD_COOKIE/process.env.JD_COOKIES/g' ./jdCookie.js

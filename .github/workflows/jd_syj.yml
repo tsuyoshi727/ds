@@ -34,13 +34,10 @@ jobs:
           ref: "jd"
       - name: Init Env
         run: |
-          cp -f test.sh ~/test.sh && chmod 755 ~/test.sh && ~/test.sh
+          cp -f update_env.sh ~/update_env.sh && chmod 755 ~/update_env.sh && ~/update_env.sh
       - name: '运行 【十元街脚本】'
         run: |
           bash ./run_scripts.sh jd_syj.js
-          cat ./Env.js
-          cat ./Env.min.js
-          wait
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
@@ -54,7 +51,7 @@ jobs:
           IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
       - name: '运行【京东快递签到】'
         run: |
-          basha ./run_scripts.sh jd_kd.js
+          bash ./run_scripts.sh jd_kd.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
@@ -114,7 +111,7 @@ jobs:
           IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
       - name: '运行 【全民开红包脚本】'
         run: |
-          bash ./run_scripts.sh ./jd_redPacket.js
+          bash ./run_scripts.sh jd_redPacket.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}

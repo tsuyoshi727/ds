@@ -2,7 +2,7 @@
 SCRIPT_NAME=`echo "${1}" | awk -F "." '{print $1}'`
 LOG="./${SCRIPT_NAME}.log"
 
-REPO_URL="https://github.com/tsuyoshi727/ds"
+REPO_URL="https://github.com/tracefish/ds"
 REPO_BRANCH="sc"
 [ ! -d ~/ds ] && git clone -b "$REPO_BRANCH" $REPO_URL ~/ds
 
@@ -60,15 +60,24 @@ fi
 echo "替换助力码"
 [ -e "${logDir}/${SCRIPT_NAME}.log" ] && autoHelp "${1}" "${logDir}/${SCRIPT_NAME}.log"
 
-[ ! -e "$1" ] && echo "脚本不存在" && exit 0
+[ ! -e "./$1" ] && echo "脚本不存在" && exit 0
 # 支持并行的cookie
 if [ -n "$JD_COOKIES" ]; then
   echo "修改cookie"
   sed -i 's/process.env.JD_COOKIE/process.env.JD_COOKIES/g' ./jdCookie.js
 fi
 
+echo "DECODE"
+encode_str=(`cat ./$1 | grep "window" | awk -F "window" '{print($1)}'| awk -F "var " '{print $(NF-1)}' | awk -F "=" '{print $1}' | sort -u`)
+if [ -n "$encode_str" ]; then
+    for ec in ${encode_str[*]}
+    do
+        sed -i "s/return $ec/if($ec.toLowerCase()==\"github\"){$ec=\"GOGOGOGO\"};return $ec/g" ./$1
+    done
+fi
+
 echo "开始运行"
-(node $1 | grep -Ev "pt_pin|pt_key") >&1 | tee ${LOG}
+(node ./$1 | grep -Ev "pt_pin|pt_key") >&1 | tee ${LOG}
 
 # 收集助力码
 collectSharecode(){
@@ -95,8 +104,8 @@ cat ${LOG}1
 echo "上传助力码文件"
 cd ~/ds
 echo "拉取最新源码"
-git config --global user.email "tsuyoshi727@qq.com"
-git config --global user.name "tsuyoshi727"
+git config --global user.email "tracefish@qq.com"
+git config --global user.name "tracefish"
 git pull origin "$REPO_BRANCH:$REPO_BRANCH"
 
 echo "Resetting origin to: https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"

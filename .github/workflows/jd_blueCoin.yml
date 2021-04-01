@@ -53,7 +53,7 @@ jobs:
           IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
       - name: '运行 【进店领豆脚本】'
         run: |
-          bash ./run_scripts.sh ./jd_shop.js
+          bash ./run_scripts.sh jd_shop.js
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
           JD_COOKIE: ${{ secrets.JD_COOKIE }}

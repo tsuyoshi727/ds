@@ -160,6 +160,7 @@ jd_unbind.js
 * jd_xtg.yml
 ```
 jd_xtg.js
+jd_carnivalcity.js
 ```
 * jx_cfd.yml
 ```

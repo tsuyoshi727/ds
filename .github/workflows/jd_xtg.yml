@@ -34,8 +34,9 @@ jobs:
           cp -f update_env.sh ~/update_env.sh && chmod 755 ~/update_env.sh && ~/update_env.sh
       - name: '运行 【星推官】'
         run: |
-          bash ./concurrency_timer.sh jd_xtg.js
-          bash ./run_scripts.sh jd_xtg.js
+          bash ./concurrency_timer.sh jd_xtg.js &
+          #bash ./run_scripts.sh jd_xtg.js &
+          bash ./run_scripts.sh jd_carnivalcity.js
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
           JD_COOKIES: ${{ secrets.JD_COOKIE }}

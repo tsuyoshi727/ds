@@ -2,7 +2,7 @@
 SCRIPT_NAME=`echo "${1}" | awk -F "." '{print $1}'`
 LOG="./${SCRIPT_NAME}.log"
 
-REPO_URL="https://github.com/tsuyoshi727/ds"
+REPO_URL="https://github.com/tracefish/ds"
 REPO_BRANCH="sc"
 [ ! -d ~/ds ] && git clone -b "$REPO_BRANCH" $REPO_URL ~/ds
 
@@ -17,6 +17,19 @@ autoHelp(){
     sc_file=$2
     sc_list=(`cat "$sc_file" | while read LINE; do echo $LINE; done | awk -F "】" '{print $2}'`)
     f_shcode=""
+    IFS=$'\n'
+    JK_LIST=(`echo "$JD_COOKIE" | awk -F "&" '{for(i=1;i<=NF;i++) print $i}'`)
+    [ -z "$JK_LIST" ] && JK_LIST=(`echo "$JD_COOKIES" | awk -F "&" '{for(i=1;i<=NF;i++) print $i}'`)
+    if [ -n "$JK_LIST" ]; then
+        diff=$((${#JK_LIST[*]}-${#sc_list[*]}))
+        for e in `seq 1 diff`
+        do 
+            sc_list+=(${sc_list[0]})
+            unset sc_list[0]
+            sc_list=(${sc_list[*]})
+            f_shcode="$f_shcode""'""`echo ${sc_list[*]:0} | awk '{for(i=1;i<=NF;i++) {if(i==NF) printf $i;else printf $i"@"}}'`""',""\n"
+        done
+    fi
     for e in `seq 1 ${#sc_list[*]}`
     do 
         sc_list+=(${sc_list[0]})
@@ -24,6 +37,7 @@ autoHelp(){
         sc_list=(${sc_list[*]})
         f_shcode="$f_shcode""'""`echo ${sc_list[*]:0} | awk '{for(i=1;i<=NF;i++) {if(i==NF) printf $i;else printf $i"@"}}'`""',""\n"
     done
+    unset IFS
     [ -n "$MY_SHARECODES" ] && f_shcode="$f_shcode""'$MY_SHARECODES',\n"
     sed -i "s/let shareCodes = \[/let shareCodes = \[\n${f_shcode}/g" "./$sr_file"
     sed -i "s/const inviteCodes = \[/const inviteCodes = \[\n${f_shcode}/g" "./$sr_file"
@@ -57,10 +71,10 @@ if [ -n "$SYNCURL" ]; then
     sed -i "s/indexOf('GITHUB')/indexOf('GOGOGOGO')/g" `ls -l |grep -v ^d|awk '{print $9}'`
     sed -i 's/indexOf("GITHUB")/indexOf("GOGOGOGO")/g' `ls -l |grep -v ^d|awk '{print $9}'`
 fi
+[ ! -e "./$1" ] && echo "脚本不存在" && exit 0
+
 echo "替换助力码"
 [ -e "${logDir}/${SCRIPT_NAME}.log" ] && autoHelp "${1}" "${logDir}/${SCRIPT_NAME}.log"
-
-[ ! -e "./$1" ] && echo "脚本不存在" && exit 0
 # 支持并行的cookie
 if [ -n "$JD_COOKIES" ]; then
   echo "修改cookie"
@@ -104,8 +118,8 @@ cat ${LOG}1
 echo "上传助力码文件"
 cd ~/ds
 echo "拉取最新源码"
-git config --global user.email "tsuyoshi @qq.com"
-git config --global user.name "tsuyoshi727"
+git config --global user.email "tracefish@qq.com"
+git config --global user.name "tracefish"
 git pull origin "$REPO_BRANCH:$REPO_BRANCH"
 
 echo "Resetting origin to: https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"

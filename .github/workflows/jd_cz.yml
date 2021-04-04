@@ -6,7 +6,7 @@ name: ICZ大佬脚本
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 1,12 * * *'
+    - cron: '0 18,12 * * *'
   watch:
     types: started
   repository_dispatch:
@@ -245,7 +245,7 @@ jobs:
           SYNCURL: "https://raw.githubusercontent.com/monk-coder/dust/dust/normal/monk_inter_shop_sign.js"
       - name: '运行 【关注有礼】'
         run: |
-          bash ./run_scripts.sh monk_shop_lottery.js
+          bash ./concurrency.sh monk_shop_lottery.js
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
           JD_COOKIE: ${{ secrets.JD_COOKIE }}

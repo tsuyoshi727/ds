@@ -174,5 +174,4 @@ jd_crazy_joy.js
 * test.yml
 ```
 jd_carnivalcity.js
-jd_dreamFactory.js
 ```

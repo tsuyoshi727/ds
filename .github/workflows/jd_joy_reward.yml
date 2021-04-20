@@ -37,7 +37,7 @@ jobs:
           cp -f update_env.sh ~/update_env.sh && chmod 755 ~/update_env.sh && ~/update_env.sh
       - name: '运行 【宠汪汪积分兑换京豆】'
         run: |
-          bash ./concurrency_timer.sh jd_joy_reward.js "16:00:01"
+          bash ./concurrency_timer.sh jd_joy_reward.js "16:00:02"
         env:
           JD_COOKIES: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}

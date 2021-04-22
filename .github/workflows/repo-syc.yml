@@ -28,4 +28,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         run: |
             cp -f syn.sh ~/syn.sh && chmod 755 ~/syn.sh && ~/syn.sh
-            cp -f auto_add_yml.sh ~/auto_add_yml.sh && chmod 755 ~/auto_add_yml.sh && bash ~/auto_add_yml.sh
+            # cp -f auto_add_yml.sh ~/auto_add_yml.sh && chmod 755 ~/auto_add_yml.sh && bash ~/auto_add_yml.sh

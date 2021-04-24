@@ -91,6 +91,7 @@ jd_carnivalcity.js
 ```
 jd_necklace.js
 jd_small_home.js
+jd_health.js
 ```
 * jd_nzmh.yml
 ```
@@ -136,6 +137,7 @@ jd_speed_sign.js
 * jd_superMarket.yml
 ```
 jd_superMarket.js
+jd_health_collect.js
 ```
 * jd_syj.yml
 ```

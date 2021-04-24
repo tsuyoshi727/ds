@@ -39,6 +39,7 @@ jobs:
         run: |
           bash ./concurrency_timer.sh cfdtx.js
         env:
+          JXNCTOKENS: ${{ secrets.JXNCTOKENS }}
           JD_COOKIES: ${{ secrets.JD_COOKIE }}    
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
           MARKET_COIN_TO_BEANS: ${{ secrets.MARKET_COIN_TO_BEANS || 20 }}

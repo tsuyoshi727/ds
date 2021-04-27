@@ -11,7 +11,6 @@ on:
     types: jd_zjd_tuan
 jobs:
   build:
-
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
     steps:
@@ -31,7 +30,7 @@ jobs:
       - name: npm install
         run: |
           npm install
-      - name: '运行 「京东」步数换豆'
+      - name: '开团'
         run: |
           node jd_tuan.js
         env:

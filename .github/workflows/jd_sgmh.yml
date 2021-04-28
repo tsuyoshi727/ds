@@ -6,7 +6,7 @@ name: 闪购盲盒
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 0,14 * * *'
+    - cron: '0 */4 * * *'
   #watch:
    # types: started
   repository_dispatch:
@@ -35,23 +35,6 @@ jobs:
       - name: Init Env
         run: |
           cp -f update_env.sh ~/update_env.sh && chmod 755 ~/update_env.sh && ~/update_env.sh
-      - name: '运行 【闪购盲盒】'
-        run: |
-          bash ./run_scripts.sh jd_sgmh.js
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
-          JD_COOKIE: ${{ secrets.JD_COOKIE }}
-          JD_DEBUG: ${{ secrets.JD_DEBUG }}
-          MARKET_COIN_TO_BEANS: ${{ secrets.MARKET_COIN_TO_BEANS }}
-          MARKET_REWARD_NOTIFY: ${{ secrets.MARKET_REWARD_NOTIFY }}
-          PUSH_KEY: ${{ secrets.PUSH_KEY }}
-          BARK_PUSH: ${{ secrets.BARK_PUSH }}
-          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
-          TG_USER_ID: ${{ secrets.TG_USER_ID }}
-          BARK_SOUND: ${{ secrets.BARK_SOUND }}
-          DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
-          DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
-          IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
       - name: '运行【现金】'
         run: |
           bash ./run_scripts.sh jd_cash.js
@@ -70,4 +53,21 @@ jobs:
           DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
           IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
           JDSGMH_SHARECODES: ${{ secrets.IGOT_PUSH_KEY }}
-          MY_SHARECODES: "eU9YaOzhNPR3-WnWzCcb0A@eU9Yaem2N_l3-GzVmicR1g@eU9YaOy2Y_wu9z-GmntH1w@eU9YauixYf5y82_VzydA1Q@a19mLbPyMfsh@eU9YN4jIMq5hiwePthRp@eU9YaeWxZa90ozvUyHEQ3g@aUNmMrvgN6N0pA"
+          MY_SHARECODES: "eU9YLI_IJKRVtAmzjSl6@YkJmMrLp@eU9Ya-q1ZfwkpGiDzydB1Q@eU9YM5nUBJxRjS-fqCRy@eU9YK6zJMpVvixGjvTVp@eU9YJpXWMoJvsw-HrjpJ@eU9YP4z2Gb1QqTuushdS"
+      - name: '运行 【闪购盲盒】'
+        run: |
+          bash ./run_scripts.sh jd_sgmh.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+          JD_COOKIE: ${{ secrets.JD_COOKIE }}
+          JD_DEBUG: ${{ secrets.JD_DEBUG }}
+          MARKET_COIN_TO_BEANS: ${{ secrets.MARKET_COIN_TO_BEANS }}
+          MARKET_REWARD_NOTIFY: ${{ secrets.MARKET_REWARD_NOTIFY }}
+          PUSH_KEY: ${{ secrets.PUSH_KEY }}
+          BARK_PUSH: ${{ secrets.BARK_PUSH }}
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_USER_ID: ${{ secrets.TG_USER_ID }}
+          BARK_SOUND: ${{ secrets.BARK_SOUND }}
+          DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
+          DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
+          IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}

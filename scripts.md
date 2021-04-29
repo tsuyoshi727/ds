@@ -48,14 +48,6 @@ jd_dreamFactory.js
 jd_jdfactory.js
 jd_moneyTree.js
 ```
-* jd_family.yml
-```
-jd_family.js
-```
-* jd_fanslove.yml
-```
-jd_fanslove.js
-```
 * jd_fruit.yml
 ```
 jd_fruit.js
@@ -68,10 +60,6 @@ jd_global.js
 * jd_global_mh.yml
 ```
 jd_global_mh.js
-```
-* jd_jin_tie.yaml
-```
-jd_jin_tie.js
 ```
 * jd_joy.yml
 ```
@@ -97,6 +85,7 @@ jd_live_redrain.js
 * jd_mohe.yml
 ```
 jd_mohe.js
+jd_carnivalcity.js
 ```
 * jd_necklace.yml
 ```
@@ -107,10 +96,6 @@ jd_health.js
 * jd_nzmh.yml
 ```
 jd_nzmh.js
-```
-* jd_pasture.yml
-```
-jd_pasture.js
 ```
 * jd_plantBean.yml
 ```
@@ -128,12 +113,13 @@ jd_lotteryMachine.js
 ```
 * jd_sgmh.yml
 ```
-jd_cash.js
 jd_sgmh.js
+jd_cash.js
 ```
-* jd_shop_lottery.yml
+* jd_shy.yml
 ```
-jd_shop_lottery.js
+jd_jdaxc.js
+jd_xxl_gh.js
 ```
 * jd_speed.yml
 ```
@@ -168,10 +154,6 @@ jd_xgyl.js
 jd_mh.js
 jd_super_box.js
 ```
-* jd_try.yml
-```
-jd_try.js
-```
 * jd_unsubscribe.yml
 ```
 jd_unsubscribe.js
@@ -182,19 +164,16 @@ jd_unbind.js
 jd_xtg.js
 jd_carnivalcity.js
 ```
-* jd_zjd.yml
-```
-jd_zjd.js
-```
-* jd_zjd_tuan.yml
-```
-jd_zjd_tuan.js
-```
 * jx_cfd.yml
 ```
 jd_cfd.js
 ```
 * jx_sign.yml
 ```
+jx_sign.js
 jd_crazy_joy.js
+```
+* test.yml
+```
+jd_carnivalcity.js
 ```

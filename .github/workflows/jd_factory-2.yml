@@ -5,8 +5,8 @@ name: 京东工厂
 
 on:
   workflow_dispatch:
-  #schedule:
-    #- cron: '25 */2 * * *'
+  schedule:
+    - cron: '25 */2 * * *'
 #  watch:
 #    types: started
   repository_dispatch:
@@ -35,26 +35,6 @@ jobs:
       - name: Init Env
         run: |
           cp -f update_env.sh ~/update_env.sh && chmod 755 ~/update_env.sh && ~/update_env.sh
-      - name: '运行 【京喜工厂】'
-        run: |
-          bash ./run_scripts.sh jd_dreamFactory.js
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
-          JD_COOKIE: ${{ secrets.JD_COOKIE }}
-          JD_DEBUG: ${{ secrets.JD_DEBUG }}
-          MARKET_COIN_TO_BEANS: ${{ secrets.MARKET_COIN_TO_BEANS }}
-          MARKET_REWARD_NOTIFY: ${{ secrets.MARKET_REWARD_NOTIFY }}
-          PUSH_KEY: ${{ secrets.PUSH_KEY }}
-          BARK_PUSH: ${{ secrets.BARK_PUSH }}
-          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
-          TG_USER_ID: ${{ secrets.TG_USER_ID }}
-          BARK_SOUND: ${{ secrets.BARK_SOUND }}
-          DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
-          DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
-          IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
-          DREAM_FACTORY_SHARE_CODES: ${{ secrets.DREAM_FACTORY_SHARE_CODES}}
-          DREAMFACTORY_FORBID_ACCOUNT: ${{ secrets.DREAMFACTORY_FORBID_ACCOUNT}}
-          SYNCURL: "https://raw.githubusercontent.com/jianminLee/jd_scripts/main/jd_dreamFactory.js"
       - name: '运行 【东东工厂】'
         run: |
           bash ./run_scripts.sh jd_jdfactory.js

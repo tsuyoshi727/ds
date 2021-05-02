@@ -42,6 +42,11 @@ jd_crazy_joy_coin.js
 jd_city.js
 jd_entertainment.js
 ```
+* jd_factory-2.yml
+```
+jd_jdfactory.js
+jd_moneyTree.js
+```
 * jd_factory.yml
 ```
 jd_dreamFactory.js

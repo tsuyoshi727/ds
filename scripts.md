@@ -29,6 +29,10 @@ jd_pigPet.js
 ```
 jd_car_exchange.js
 ```
+* jd_cash.yml
+```
+jd_cash.js
+```
 * jd_crazy_joy_bonus.yml
 ```
 jd_crazy_joy_bonus.js
@@ -172,6 +176,10 @@ jd_xg.js
 jd_xgyl.js
 jd_mh.js
 jd_super_box.js
+```
+* jd_try.yml
+```
+jd_try.js
 ```
 * jd_unsubscribe.yml
 ```

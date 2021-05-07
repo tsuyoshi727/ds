@@ -43,7 +43,7 @@ jobs:
           bash ./run_scripts.sh jd_speed_redpocke.js
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
-          JD_COOKIES: ${{ secrets.JD_COOKIE }}
+          JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
           BARK_PUSH: ${{ secrets.BARK_PUSH }}

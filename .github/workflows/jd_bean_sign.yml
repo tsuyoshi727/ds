@@ -56,7 +56,7 @@ jobs:
         run: |
           bash ./run_scripts.sh jd_car.js
         env:
-          JD_COOKIES: ${{ secrets.JD_COOKIE }}
+          JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
           JD_BEAN_SIGN_STOP_NOTIFY: ${{secrets.JD_BEAN_SIGN_STOP_NOTIFY}}
           JD_BEAN_SIGN_NOTIFY_SIMPLE: ${{secrets.JD_BEAN_SIGN_NOTIFY_SIMPLE}}

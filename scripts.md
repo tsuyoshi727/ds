@@ -46,6 +46,10 @@ jd_crazy_joy_coin.js
 jd_city.js
 jd_entertainment.js
 ```
+* jd_daily_lottery.yml
+```
+jd_daily_lottery.js
+```
 * jd_factory-2.yml
 ```
 jd_jdfactory.js

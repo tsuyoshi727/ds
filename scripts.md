@@ -1,4 +1,12 @@
 ### 活动脚本位置
+* 20210427jd_super_redrain-2.yml
+```
+jd_super_redrain.js
+```
+* 20210427jd_super_redrain.yml
+```
+jd_super_redrain.js
+```
 * jd_bean_change.yml
 ```
 jd_bean_change.js

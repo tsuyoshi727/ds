@@ -90,6 +90,10 @@ jd_global.js
 ```
 jd_global_mh.js
 ```
+* jd_half_redrain.yml
+```
+jd_half_redrain.js
+```
 * jd_jin_tie.yaml
 ```
 jd_jin_tie.js

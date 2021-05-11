@@ -20,7 +20,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          repository: inoyna11/jd28
+          repository: nianyuguai/longzhuzhu
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -42,7 +42,7 @@ jobs:
       - name: '运行'
         run: |
           curl https://raw.githubusercontent.com/inoyna11/jd28/master/jd_half_redrain.js -o jd_half_redrain.js
-          node jd_half_redrain.js        
+          node qx/jd_half_redrain.js        
       
          
           

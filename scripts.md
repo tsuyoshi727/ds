@@ -1,4 +1,8 @@
 ### 活动脚本位置
+* 0404jd_live_lottery_social.yml
+```
+jd_live_lottery_social.js
+```
 * 20210427jd_super_redrain-2.yml
 ```
 jd_super_redrain.js
@@ -90,10 +94,6 @@ jd_global.js
 ```
 jd_global_mh.js
 ```
-* jd_half_redrain.yml
-```
-jd_half_redrain.js
-```
 * jd_jin_tie.yaml
 ```
 jd_jin_tie.js
@@ -118,6 +118,10 @@ jd_jxd.js
 * jd_live_redrain.yml
 ```
 jd_live_redrain.js
+```
+* jd_liveredrain.yml
+```
+jd_liveredrain.js
 ```
 * jd_mohe.yml
 ```

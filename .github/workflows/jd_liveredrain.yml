@@ -1,16 +1,16 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: 半点
+name: 超级直播间红包雨
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 0-23 * * *'
+    - cron: '5,35 0-23/1  * * *'
   watch:
     types: started
   repository_dispatch:
-    types: half
+    types: jd_liveredrain
 jobs:
   build:
 
@@ -19,6 +19,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          repository: hajiuhajiu/jdsign1112
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -37,10 +39,14 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.7
+      - name: '红包雨'
+        run: |
+              curl https://raw.githubusercontent.com/inoyna11/jd28/master/accwait.py -o accwait.py
+              python3 accwait.py 0.1 0.1 59
       - name: '运行'
         run: |
-          curl https://raw.githubusercontent.com/inoyna11/jd28/master/jd_half_redrain.js -o jd_half_redrain.js
-          node jd_half_redrain.js        
+          curl https://raw.githubusercontent.com/inoyna11/jd28/master/jd_liveredrain.js -o jd_liveredrain.js
+          node jd_liveredrain.js         
       
          
           
